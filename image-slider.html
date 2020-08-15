@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider with JavaScript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Serif', serif;
+    }
+    section {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    section #ImageSlider {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    section ul.thumbnails {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        display: flex;
+        transform: translateX(-50%);
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        z-index: 999;
+    }
+    section ul.thumbnails li {
+        margin: 1em;
+        cursor: pointer;
+    }
+    section ul.thumbnails li img {
+        border: 2px solid black;
+        max-height: 5em;
+        padding: 0;
+        margin: 0;
+    }
+    .fade-in {
+       animation: fadein 4s;
+        -moz-animation: fadein 4s; /* Firefox */
+        -webkit-animation: fadein 4s; /* Safari and Chrome */
+        -o-animation: fadein 4s; /* Opera */
+    }
+    @keyframes fadein {
+        from {
+            opacity:0;
+        }
+        to {
+            opacity:1;
+        }
+    }
+</style>
+<body>
+    <section>
+        <img class="fade-in" src="img/01.jpg" alt="Image Title" id="ImageSlider">
+        <ul class="thumbnails">
+            <li onclick="imgSlider('img/01.jpg')"><img src="img/01-s.png" alt="Thumb Image"></li>
+            <li onclick="imgSlider('img/02.jpg')"><img src="img/02-s.png" alt="Thumb Image"></li>
+            <li onclick="imgSlider('img/03.jpg')"><img src="img/03-s.png" alt="Thumb Image"></li>
+            <li onclick="imgSlider('img/04.jpg')"><img src="img/04-s.png" alt="Thumb Image"></li>
+            <li onclick="imgSlider('img/05.jpg')"><img src="img/05-s.png" alt="Thumb Image"></li>
+            <li onclick="imgSlider('img/06.jpg')"><img src="img/06-s.png" alt="Thumb Image"></li>
+        </ul>
+    </section>
+    <script type="text/javascript">
+        // var el = document.getElementById("ImageSlider");
+        // function imgSlider(newimage) {
+        //     el.src = newimage;
+        // }
+        var el = document.getElementById("ImageSlider");
+
+function imgSlider(newimage) {
+  el = document.getElementById("ImageSlider");
+  el.src = newimage;
+//   console.clear();
+//   console.log(window.getComputedStyle(el).opacity);
+  if (window.getComputedStyle(el).opacity > 0) {
+    // console.log(true);
+    el.style.opacity = 0;
+    el.classList.remove("fade-in");
+    setTimeout(function() {
+      el.classList.add("fade-in");
+      el.style.opacity = 1;
+    }, 100);
+  }
+}
+        
+    </script>
+</body>
+</html>

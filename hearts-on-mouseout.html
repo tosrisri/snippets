@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Trails on MouseOut</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+    }
+    body {
+        background: #000000;
+        min-height: 100vh;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Serif', serif;
+    }
+    span {
+        position: absolute;
+        background: url("img/heart.png");
+        background-size: cover;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+        width: 100px;
+        height: 100px;
+        animation: animate 2s linear infinite;
+    }
+    @keyframes animate {
+        0% 
+        {
+            transform: translate(-50%, -50%);
+            opacity: 1;
+            filter: hue-rotate(0deg);
+        }
+        100%
+        {
+            transform: translate(-50%, -1000%);
+            opacity: 0;
+            filter: hue-rotate(720deg);
+        }
+    }
+</style>
+<body>
+    
+    <section class="banner"></section>
+    <script type="text/javascript">
+        document.addEventListener("mousemove",function(e) {
+            var body = document.querySelector('body');
+            var heart = document.createElement("span");
+            var x = e.offsetX;
+            var y = e.offsetY;
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            var size = Math.random() * 100;
+            heart.style.width = 10 + size + 'px';
+            heart.style.height = 10 + size + 'px';
+            body.appendChild(heart);
+
+            setTimeout(function(){
+                heart.remove();
+            },2000);
+        })
+    </script>
+</body>
+</html>

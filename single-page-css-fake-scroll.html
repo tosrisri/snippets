@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single Page with CSS Fake Scroll</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<style>
+  * {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+  }
+  section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 6em;
+    font-weight: bold;
+  }
+  section:nth-child(even) {
+    background-color: #f6f6f6;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #000;
+    text-align: center;
+    z-index: 1;
+  }
+  nav a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1em;
+    font-size: 1.6em;
+  }
+  nav a:hover, 
+  section#one:hover ~ nav a[href="#one"], 
+  section#two:hover ~ nav a[href="#two"], 
+  section#three:hover ~ nav a[href="#three"], 
+  section#four:hover ~ nav a[href="#four"], 
+  section#five:hover ~ nav a[href="#five"]
+  {
+    background: #fff;
+    color: #000;
+  } 
+  ::-webkit-scrollbar {
+    width: 0;
+  }
+</style>
+
+<body>
+<section id="one">section one</section>
+<section id="two">section Two</section>
+<section id="three">section Three</section>
+<section id="four">section Four</section>
+<section id="five">section Five</section>
+<nav>
+  <a href="#one">One</a>
+  <a href="#two">Two</a>
+  <a href="#three">Three</a>
+  <a href="#four">Four</a>
+  <a href="#five">Five</a>
+</nav>
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script type="text/javascript">
+
+  </script>
+</body>
+
+</html>

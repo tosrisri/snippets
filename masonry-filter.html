@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry with Filter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Noto Serif', serif;
+    }
+
+    ul.filter-buttons {
+        position: relative;
+        width: 99%;
+        padding: 0;
+        margin: 0 auto;
+        text-align: center;
+        clear: both;
+        border: 1px solid red;
+        height: 1%;
+    }
+
+    ul.filter-buttons li {
+        list-style: none;
+        float: left;
+        padding: 1em;
+        text-transform: uppercase;
+        margin-right: 2em;
+    }
+
+    ul.filter-buttons li:hover,
+    ul.filter-buttons li.active {
+        background: #333;
+        color: #eee;
+    }
+
+    .wrapper {
+        padding: 2em 0;
+        position: relative;
+        box-sizing: border-box;
+        border: 1px solid cyan;
+        width: 100%;
+    }
+
+    .wrapper .box {
+        width: 25%;
+        min-height: 150px;
+        float: left;
+        box-sizing: border-box;
+        border: 1px solid blue;
+        margin: 0 1em 1em 0;
+        -webkit-margin-collapse: collapse;
+    }
+</style>
+
+<body>
+    <div class="row">
+        <div class="wrapper">
+            <ul class="filter-buttons">
+                <li class="button active" data-filter="all">All</li>
+                <li class="button" data-filter="apps">Web Applications</li>
+                <li class="button" data-filter="websites">Websites</li>
+                <li class="button" data-filter="ux">UX</li>
+                <li class="button" data-filter="brand">Branding</li>
+                <li class="button" data-filter="graphic">Graphics</li>
+            </ul>
+            <div class="box filter apps">asd</div>
+            <div class="box filter brand">asd</div>
+            <div class="box filter websites">sd</div>
+            <div class="box filter ux">asd</div>
+            <div class="box filter graphic">asd</div>
+            <div class="box filter ux">asd</div>
+            <div class="box filter apps">asd</div>
+            <div class="box filter websites">asd</div>
+            <div class="box filter graphic">asd</div>
+            <div class="box filter brand">asd</div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".button").click(function () {
+                var value = $(this).attr("data-filter");
+                if (value == "all") {
+                    $(".filter").show("1000");
+                }
+                else {
+                    $(".filter").not("." + value).hide("1000");
+                    $(".filter").filter("." + value).show("1000");
+                }
+                //Add Active Class
+                $("ul.filter-buttons .button").click(function () {
+                    $(this).addClass('active').siblings().removeClass('active');
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

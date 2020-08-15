@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masonry using Flexbox</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Noto Serif', serif;
+    }
+
+    ul.filter-buttons {
+        position: relative;
+        width: 99%;
+        padding: 0;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    ul.filter-buttons li {
+        list-style: none;
+        padding: 1em;
+        text-transform: uppercase;
+        margin-right: 2em;
+    }
+
+    ul.filter-buttons li:hover,
+    ul.filter-buttons li.active {
+        background: #333;
+        color: #eee;
+    }
+
+    .wrapper {
+        padding: 2em 0;
+        position: relative;
+        box-sizing: border-box;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+
+    .grid-cont {
+        flex-flow: row wrap;
+        display: flex;
+        padding: 1em;
+    }
+
+    .grid-cont .box {
+        flex: auto;
+        width: 200px;
+        margin: 0.5vw;
+        box-sizing: border-box;
+        margin: 0 1em 1em 0;
+        /* transition: 0.2s ease-in-out; */
+    }
+
+    .grid-cont div img {
+        width: 100%;
+        height: auto;
+        transition: flex 1s, filter .5s, transform .5s;
+    }
+
+
+    /*Grayscale*/
+
+    .grid-cont div img {
+        filter: grayscale(100%);
+        filter: saturate(0);
+        transition: all .4s ease;
+        /*   box-shadow: 2px 2px 5px; */
+    }
+
+    .grid-cont div img:hover {
+        filter: grayscale(0);
+        filter: saturate(1.5);
+        box-shadow: 0px 0px 5px;
+    }
+</style>
+
+<body>
+    <div class="row">
+        <div class="wrapper">
+            <ul class="filter-buttons">
+                <li class="button active" data-filter="all">All</li>
+                <li class="button" data-filter="apps">Web Applications</li>
+                <li class="button" data-filter="websites">Websites</li>
+                <li class="button" data-filter="ux">UX</li>
+                <li class="button" data-filter="brand">Branding</li>
+                <li class="button" data-filter="graphic">Graphics</li>
+            </ul>
+            <div class="grid-cont">
+                <div class="box filter apps"><img src="https://unsplash.it/600/400?image=828" alt></div>
+                <div class="box filter brand"><img src="https://unsplash.it/600/400?image=118" alt></div>
+                <div class="box filter websites"><img src="https://unsplash.it/600/400?image=109" alt></div>
+                <div class="box filter ux"><img src="https://unsplash.it/600/400?image=638" alt></div>
+                <div class="box filter graphic"><img src="https://unsplash.it/600/400?image=648" alt></div>
+                <div class="box filter ux"><img src="https://unsplash.it/600/400?image=908" alt></div>
+                <div class="box filter apps"><img src="https://unsplash.it/600/400?image=311" alt></div>
+                <div class="box filter websites"><img src="https://unsplash.it/600/400?image=221" alt></div>
+                <div class="box filter graphic"><img src="https://unsplash.it/600/400?image=637" alt></div>
+                <div class="box filter brand"><img src="https://unsplash.it/600/400?image=467" alt></div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".button").click(function () {
+                var value = $(this).attr("data-filter");
+                if (value == "all") {
+                    $(".filter").show("1000");
+                }
+                else {
+                    $(".filter").not("." + value).hide("1000");
+                    $(".filter").filter("." + value).show("1000");
+                }
+                //Add Active Class
+                $("ul.filter-buttons .button").click(function () {
+                    $(this).addClass('active').siblings().removeClass('active');
+                })
+            })
+        })
+    </script>
+</body>
+
+</html>

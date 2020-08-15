@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3 Clip-path Transform on Page Scroll</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+    }
+    body {
+        background: #fff;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Serif', serif;
+    }
+    section {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background: url("img/01.jpg");
+        background-attachment: fixed;
+        clip-path: circle(0px at center);
+    }
+    .container {
+        position: relative;
+        margin-top: 200vh;
+        background: #fff;
+        padding: 4em;
+    }
+    .container h2 {
+        font-size: 3em;
+        margin-bottom: 20px;
+    }
+    .titled {
+        position: relative;
+        top: 250px;
+        z-index: 1;
+        font-size: 3em;
+        text-align: center;
+    }
+</style>
+<body>
+    <h1 class="titled">Scroll down to see the trnaformation</h1>
+    <section></section>
+    <div class="container">
+        <h2>Some main heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Obcaecati dicta ullam iusto fuga quam veritatis perferendis totam alias libero rerum aperiam sequi incidunt, architecto, ab, error ratione repudiandae nostrum amet.</p>
+        <div id="lipsum">
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam tempus erat, vitae sodales tortor mattis sed. Nullam dui lorem, sollicitudin non mauris at, gravida scelerisque nibh. Fusce rhoncus tortor sagittis lorem tincidunt tincidunt. Pellentesque ullamcorper ipsum vitae libero mollis luctus. Aliquam pharetra neque nec maximus congue. Etiam faucibus orci massa, id egestas urna convallis at. Nullam nisl lorem, sollicitudin quis velit sed, egestas facilisis nisl. Duis bibendum malesuada diam quis semper. Cras venenatis odio nec ultricies elementum.
+            </p>
+            <p>  
+            Mauris interdum blandit tincidunt. Nunc nisi elit, egestas eu placerat et, tristique a ligula. Morbi vitae dui nisi. In massa purus, aliquam non diam vel, gravida sagittis massa. Integer sagittis maximus neque, eu aliquet augue facilisis sit amet. Donec vestibulum eget libero sit amet ultricies. Donec vitae lacus purus. Nunc tristique vitae neque at euismod. Maecenas pulvinar dui vel mollis tempor. Nullam nec commodo tortor, nec placerat libero. Cras rutrum ullamcorper turpis et convallis. Sed at sapien at augue consectetur sollicitudin in et leo. Integer mollis mattis dui non efficitur. Mauris in maximus sem, id hendrerit tortor.
+            </p>
+            <p>
+            Pellentesque viverra neque sit amet vestibulum cursus. Morbi a commodo lorem, nec laoreet ante. Cras imperdiet urna sit amet mi ultricies tincidunt. In sed ligula quis ante condimentum suscipit. Donec vulputate facilisis odio, vel sollicitudin erat ultricies quis. Etiam rhoncus velit id nibh ornare, sed malesuada ex imperdiet. Nunc faucibus erat eget elit molestie semper. Aenean tincidunt lectus a porta posuere. Pellentesque porttitor metus at tempor ullamcorper. Aliquam erat volutpat.
+            </p>
+            <p>
+            In quis nisi sit amet sem semper semper. Suspendisse tristique rutrum consectetur. Cras elementum eros tempus est semper, non tempus odio feugiat. Sed sem purus, ultricies ac pellentesque molestie, lacinia ut leo. Quisque est mi, accumsan ut elit in, aliquet ornare diam. In nec ullamcorper metus. Proin non ante eget nunc tempor consectetur at ut lectus. Vivamus vehicula justo et volutpat tincidunt. Phasellus metus ex, consectetur vitae ex a, vulputate malesuada ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras non est nibh. Aliquam lorem lectus, mollis sit amet tincidunt lobortis, mollis a magna. Nam et urna a nisi venenatis lobortis sed id leo.
+            </p>
+            <p>
+            Suspendisse ultrices, eros vel pretium molestie, sem tortor vestibulum nunc, vel placerat lorem massa a urna. Suspendisse sed velit et ipsum vestibulum porttitor. Donec eget urna eu risus porta consequat sit amet id urna. Mauris vitae arcu in sem pulvinar lobortis. Nam auctor erat in velit mattis, in facilisis erat finibus. Phasellus elementum felis et erat ultrices, id dignissim purus luctus. Nunc turpis nulla, ultrices a quam non, bibendum semper purus. Mauris sit amet rutrum dui. Maecenas auctor justo eu massa porttitor semper. Donec eget libero leo. Phasellus non neque fringilla, ultrices turpis semper, iaculis lacus. Donec fringilla ligula non ex faucibus, et placerat eros ultricies. Suspendisse sit amet purus pellentesque, vehicula quam quis, hendrerit diam. Nam non libero bibendum, cursus dui vel, facilisis lectus.
+            </p></div>
+    </div>
+    <script type="text/javascript">
+        var section = document.querySelector('section');
+        window.addEventListener('scroll', function(){
+            var value = window.scrollY;
+            section.style.clipPath = "circle("+ value +"px at center)"
+        })
+    </script>
+</body>
+</html>

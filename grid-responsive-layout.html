@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Grid Layout</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+}
+body {
+  line-height: 1.5;
+}
+
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(500px,100%), 1fr));
+}
+
+.grid p {
+  border: 1px solid hotpink;
+  padding: 1em;
+}
+
+
+</style>
+
+<body>
+  <div class="grid">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto rerum error deserunt facere? Incidunt deleniti, unde reprehenderit debitis veritatis, eos tenetur fugit expedita, at ab quo cum earum minus pariatur.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit suscipit ea quibusdam magni officia? Maiores, nam hic neque adipisci ducimus, iste saepe nemo quis cum laudantium, quibusdam dolore quas odit?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque aliquid suscipit consequuntur unde voluptatem sit nesciunt vel dolores expedita. Molestias in quae veritatis numquam provident nobis rerum, ea temporibus excepturi.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur perferendis velit, sapiente a veritatis tempore incidunt maxime at eligendi fugiat ducimus ipsa molestias ut mollitia optio, modi delectus ea consequuntur!</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident culpa laudantium minus nesciunt eligendi quod expedita sit delectus odit enim illo ipsam, ut est, quis eum vel odio quasi iste?</p>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script type="text/javascript">
+// $(document).ready(function () {});
+  </script>
+</body>
+
+</html>

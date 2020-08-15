@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropdown Menu</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+<style>
+/* Google Fonts */
+@import url(https://fonts.googleapis.com/css?family=Lato:300,400);
+
+/* Main Menu */
+
+ul#main-menu {
+	font-family: 'Lato', sans-serif;
+	font-family: 13px;
+	font-weight: 300;
+	list-style: none;
+	position: absolute;
+	cursor: pointer;
+}
+
+ul#main-menu > ul {
+	list-style: none;
+	opacity: 0;
+}
+
+ul#main-menu li {
+	background: #006bb6;
+	padding: 15px 50px 15px 10px;
+	border-bottom: 1px solid #fff;
+}
+
+ul#main-menu li:hover {
+	background: #9eccb3;
+}
+
+ul#main-menu li:first-child {
+	border-radius: 0 5px 0 0;
+}
+
+ul#main-menu li a {
+	color: #fff;
+	text-decoration: none;
+}
+
+ul#main-menu i {
+	padding-right: 15px;
+	padding-left: 5px;
+}
+
+/* Submenu */
+
+#submenu {
+	color: #fff;
+	position: absolute;
+	width: 120px;
+	left: 202px;
+	margin-top: -50px;
+}
+
+ul#submenu > li {
+	padding: 10px;
+}
+
+ul#main-menu ul#submenu.show-submenu {
+	opacity: 1;
+	cursor: pointer;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+ul#main-menu ul#submenu.hide-submenu {
+	cursor: pointer;
+	display: none;
+}
+</style>
+
+<body onload="menuInit();">
+  <section>
+    <nav id="navbar">
+      <ul id="main-menu">
+        <li><a href="#" target="_blank"><i class="fa fa-home"></i>Home</a></li>
+        <li><a href="#" target="_blank"><i class="fa fa-list-alt"></i>About</a></li>
+        <li id="dropdown-item"><a href="#"><i class="fa fa-coffee"></i>Work With Me</a></li>
+          <ul id="submenu" class="hide-submenu">
+            <li>AngularJS</li>
+            <li>JavaScript</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+          </ul>
+        <li><a href="#" target="_blank"><i class="fa fa-quote-left"></i>Testimonials</a></li>
+        <li><a href="#" target="_blank"><i class="fa fa-user"></i>Contact</a></li>
+      </ul><!-- main-menu -->
+    </nav><!-- navbar -->
+  
+  </section>
+  
+    <script type="text/javascript">
+function menuInit() {
+	var dropdown = document.getElementById("dropdown-item");
+	var submenu = document.getElementById("submenu");
+
+	dropdown.onmouseover = popOutMenu;
+	dropdown.onmouseout = hideDropdown;
+
+	submenu.onmouseover = popOutMenu;
+	submenu.onmouseout = hideDropdown;
+}
+
+function popOutMenu () {
+	submenu.className = "show-submenu";
+}
+
+function hideDropdown () {
+	submenu.className = "hide-submenu";
+}
+    </script>
+</body>
+
+</html>

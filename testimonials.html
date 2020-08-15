@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials Slider</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Noto Serif', serif;
+    }
+    
+
+.testimonials-container {
+	background-color: #eee;
+	color: #000;
+	font-family: 'Montserrat';
+	margin: 20px auto;
+	max-width: 768px;
+	padding: 50px 80px;
+	position: relative;
+}
+
+.fa-quote {
+	color: rgba(255, 255, 255, 0.3);
+	font-size: 28px;
+	position: absolute;
+	top: 70px;
+}
+
+.fa-quote-right {
+	left: 40px;
+}
+
+.fa-quote-left {
+	right: 40px;
+}
+
+.testimonial {
+	line-height: 28px;
+	text-align: justify;
+}
+
+.centered-items {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.logo {
+	border-radius: 50%;
+	height: 75px;
+	width: 75px;
+	object-fit: cover;
+}
+
+.user-details {
+	margin-left: 10px;
+}
+
+.username {
+	margin: 0;
+}
+
+.role {
+	font-weight: normal;
+	margin: 2px 0;
+}
+
+.progress-bar {
+	background-color: #f00;
+	height: 1px;
+	width: 100%;
+	animation: grow 10s linear infinite;
+	transform-origin: left;
+}
+
+@keyframes grow {
+	0% {
+		transform: scaleX(0);
+	}
+}
+
+@media (max-width: 768px) {
+	.testimonials-container {
+		padding: 20px 30px;
+	}
+	
+	.fa-quote {
+		display: none;
+	}
+}
+
+</style>
+
+<body>
+<section>    
+  <div class="testimonials-container">
+    <div class="progress-bar"></div>
+    <div class="fa fa-quote-right fa-quote"></div>
+    <div class="fa fa-quote-left fa-quote"></div>
+    <p class="testimonial">Srini has a passion for perfection and creativity. I worked with Srini as part of the UX team at Asda. Always delivered quality work and not once did he let the team down. He really takes pride in his work and it can't be faulted. You never get second best with Srini - only the best outcomes and at speed. It was a pleasure to work alongside Srini, and any team with him in it can only succeed! </p>
+    <div class="centered-items">
+      <img class="logo" src="https://media-exp1.licdn.com/dms/image/C5603AQH-v2TdYZwsCQ/profile-displayphoto-shrink_100_100/0?e=1602115200&amp;v=beta&amp;t=T2i8wrE0nE5MOzwvAi5MA3hL64Cve2D0zozSd7Uij6M" alt="avatar" />
+      <div class="user-details">
+        <h4 class="username">Dez Broatch</h4>
+        <p class="role">Senior UX Designer at Walmartlabs</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+  
+    <script type="text/javascript">
+const testimonialsContainer = document.querySelector('.testimonials-container');
+const testimonial = testimonialsContainer.querySelector('.testimonial');
+const logo = testimonialsContainer.querySelector('.logo');
+const username = testimonialsContainer.querySelector('.username');
+const role = testimonialsContainer.querySelector('.role');
+
+const testimonials = [
+    {
+        "name": "Kent Joshi",
+        "position": "IT | Biotechnology | Medical Device | HealthCare | GxP | QMS | PMP | Agile| People &amp; Project Manager",
+        "photo": "https://media-exp1.licdn.com/dms/image/C5603AQHfQpSWTQF6aQ/profile-displayphoto-shrink_100_100/0?e=1602115200&v=beta&t=-qLM0rJv5s-ixODjfIlFQXixRw0CD9JspDwjtAt3JcA",
+		"text": "To whom it may concern: It is my pleasure to recommend Srini B. I worked with him at Baxter Healthcare. In his role as UI & UX Architect, I was consistently impressed with how he participated in stakeholder discussions in understanding the Business and User requirements and way in which he analyzed the UI requirements from the legacy application called APDSv1.0. I watched how he developed the front end (UIs) in HTML5 & CSS2 and delivered it to the backend team. I also observed how he demonstrated excellent trouble-shooting in resolving all UI issues. Srini was a good team player and a valuable asset in bringing APDSv2.0 to life in a short period. "
+    },
+    {
+        "name": "Kasi Malla",
+        "position":"Senior Consultant at Deloitte",
+        "photo": "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7",
+		"text": "Recently I am working on an independent project, I was skeptical about the project's timelines, Srini, though I know him from childhood but never worked with him. In an occasion when we met i asked for his support and he joined the team at the nick of time. The kind of work he has done and been doing is amazing. His keen to detail on every single aspect of UI and pixel perfect design layout is very much appreciable. His work was always accurately executed, the amount of dedication he has shown and his patience helped us to complete the project than expected. He has a good sense of people in his team and as a great team member he brought the best in those around him. He’s really made a difference in our project’s success, without whom it would take a more while. I feel lucky to have him in my team."
+    },
+    {
+        "name": "Alicia Flanders",
+        "position":"UX Designer at Ericsson",
+        "photo": "https://media-exp1.licdn.com/dms/image/C5603AQGHbJpOJt432w/profile-displayphoto-shrink_100_100/0?e=1602115200&v=beta&t=ePXj1E0ImxbgQDIZR90lN6pPxyUKtiQLwBJlfDx0JkQ",
+		"text": "I had the pleasure of working with Srinivas for a few months while on a contract with Shire. As a remote consultant, Srinivas coded the UI design into HTML. He produced quality work very quickly. He made relevant recommendations for the design and was responsive to feedback. When complications arose about the duration of his contract, he remained loyal to the project and completed the UI, even though he did so without compensation. Srinivas's contributions were appreciated. I am grateful for the opportunity to have worked with Srinivas and would welcome doing so again."
+    },
+    {
+        "name": "Kalyan Kakarlapudi",
+        "position":"Sr Manager, QA Validation at Puma Biotechnology, Inc.",
+        "photo": "https://media-exp1.licdn.com/dms/image/C5603AQF6sEsMI8Q1Mw/profile-displayphoto-shrink_100_100/0?e=1602115200&v=beta&t=Pd2o6uUJDBJhXpubU7VO3QoUsxdEFYUMXkBznkQL13g",
+		"text": "I had the pleasure of working with Srinivas for more than a year on a custom developed solution for Baxter/ Baxalta (now part of shire, Inc.). I was particularly impressed by his command on UI & UX design and development and get people on board with new ideas and solutions. Srinivas’s ability to juggle multiple activities has made a dramatic difference in achieving the project goals. He is a great asset to any project/company. "
+    },
+    {
+        "name": "Deepak Singh",
+        "position":"Senior manager - Mobility solutions",
+        "photo": "https://media-exp1.licdn.com/dms/image/C4E03AQEJPbXprjLf6w/profile-displayphoto-shrink_100_100/0?e=1602115200&v=beta&t=jeJh4IkuW-2UVPt9mGxWyafK5pL1HipFfPD1vuQ69nA",
+		"text": "Srini work with me in Impelsys. His responsibilities included Usability Analysis and UI design of complex web design. He is a hard working, creative, talented and a good team player and get along with anyone easily with solid problem solving and technical skills."
+    },
+    {
+        "name": "Kishore Saragadam",
+        "position":"Entrepreneur, Investor, Program Manager, Blockchain enthusiast",
+        "photo": "https://media-exp1.licdn.com/dms/image/C4E03AQGXFC6sahKdSg/profile-displayphoto-shrink_100_100/0?e=1602115200&v=beta&t=Sa6xVmMt9GCoC79aqzE8Qj05nb-EegZ9_WC1DE87OJk",
+		"text": "Srini is a nice person to work with. He is very creative and talented. He showed high level of enthusiasm and commitment during the time he helped us."
+    }
+];
+let idx = 1;
+
+
+function updateTestimonial() {
+	let { name, position, photo, text } = testimonials[idx];
+	
+	testimonial.innerHTML = text;
+	logo.src  = photo;
+	username.innerHTML = name;
+	role.innerHTML = position;
+	
+	idx++;
+	if(idx > testimonials.length -1 ) {
+		idx = 0;
+	}
+}
+
+setInterval(updateTestimonial, 10000);
+    </script>
+</body>
+
+</html>

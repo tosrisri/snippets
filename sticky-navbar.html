@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sticky Nav Bar with JavaScript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+    }
+    body {
+        background: #f2f2f2;
+        min-height: 200vh;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Serif', serif;
+    }
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: 0.6s;
+        padding: 2em;
+        z-index: 999;
+    }
+    header.sticky {
+        padding: 1em 3em;
+        background: rgba(0,0,0,0.7);
+    } 
+    header .logo {
+        position: relative;
+        color: black;
+        transition: 0.6s;
+        text-transform: uppercase;
+        font-size: 2em;
+        letter-spacing: 0.1em;
+        text-decoration: none;
+        font-weight: 700;
+        display: flex;
+    }
+    header .logo img {
+        max-height: 2em;
+        margin-right: 1em;
+    }
+    header .main-nav {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: right;
+        list-style: none;
+    }
+    header .main-nav li a {
+        margin: 0 15px;
+        padding: 1em;
+        transition: 0.5s;
+        font-weight: 400;
+        text-decoration: none;
+    }
+    section.banner {
+        position: relative;
+        width: 100%;
+        height: 200vh;
+        background-image: url("img/01.jpg");
+        background-size: cover;
+    }
+    header.sticky ul li a, header.sticky .logo {
+        color: #fff;
+
+    }
+</style>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="img/logo.svg" alt="Logo" > Logo</a>
+        <ul class="main-nav">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+    </header>
+    <section class="banner"></section>
+    <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky",window.scrollY > 0);
+        })
+    </script>
+</body>
+</html>

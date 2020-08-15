@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Webpage</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<style>
+
+* {
+  margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+}
+body {
+  background: #641b4e;
+  color: white;
+  
+}
+p {
+  line-height: 1.6em;
+}
+h2, h3, h4, h5, h6 {
+  line-height: 1.1em;
+}
+section {
+  padding: 100px;
+  display: flex;
+  justify-content:  flex-start;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+}
+section .logo {
+  position: fixed;
+  top: 30px;
+  font-weight: 600;
+  font-size: 2em;
+  z-index: 100;
+  cursor: pointer;
+}
+section .bg {
+  position: absolute;
+  top: 0;
+  right: 60px;
+  height: 100%;
+}
+section .content {
+  position: relative;
+  max-width: 650px;
+  z-index: 1;
+}
+section .content h2 {
+  font-size: 3em;
+  font-weight: 700;
+}
+section .content p {
+  margin: 20px 0 10px;
+}
+section .content a {
+  background: #f60f20;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  color: white;
+}
+.copytext {
+  position: absolute;
+  bottom: 20px;
+  font-size: 11px;
+  font-weight: 100;
+}
+.menuToggle {
+  position:fixed;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: #f60f20 url("/responsive-webpage/menu.png") no-repeat center;
+  background-size: 30px;
+  cursor: pointer;
+  z-index: 1000;
+}
+.navigation {
+  position: fixed;
+  top: 0;
+  left: calc(100% - 60px);
+  width: 100%;
+  height: 100%;
+  background: white;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.2s;
+}
+.navigation.active {
+  left: 0px;
+}
+.navigation ul {
+  position: relative;
+  list-style: none;
+}
+.navigation ul li { 
+  position: relative;
+  text-align: center;
+  margin-bottom: 1em;
+}
+.navigation ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 2em;
+}
+.navigation ul li a:hover {
+  color: #f60f20;
+}
+.socialBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right:1px solid #ccc ;
+}
+.socialBar ul {
+  position: relative;
+  list-style: none;
+}
+.socialBar ul li { 
+  position: relative;
+  margin-bottom: 1em;
+}
+.socialBar ul li a {
+  position: relative;
+  display: inline-block;
+  transform: scale(0.6);  
+}
+.socialBar ul li a:hover {
+  color: #f60f20;
+}
+.socialBar .emailBx {
+  position: absolute;
+  bottom: 20px;
+  transform: scale(0.6);
+}
+.menuToggle.active {
+  background: #f60f20 url("/responsive-webpage/close.png")  no-repeat center;
+  background-size: 25px;
+  cursor: pointer;
+}
+@media (max-width: 767px) {
+  section {
+    padding: 100px 40px;
+  }
+  section .content h2 {
+    font-size: 2.2em;
+  }
+  .navigation {
+    left: 100%;
+  }
+  section .bg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+  }
+  section .logo {
+    top: 10px;
+    font-size: 1.5em;
+  }
+  .navigation ul li a {
+    font-size: 2em;
+  }
+}
+</style>
+
+<body>
+<section>
+  <div class="logo">Creative</div>
+  <img class="bg" src="/responsive-webpage/bg.jpg" alt="bg-img">
+  <div class="content">
+    <h2>Let's make some thing new</h2>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cumque amet, quae expedita voluptates excepturi sunt aperiam necessitatibus delectus eveniet. Accusamus obcaecati id laudantium porro vitae iusto et dolores ex quas!</p>
+    <a href="#">Get Started</a>
+  </div>
+  <p class="copytext">&copy; 2020. All Rights Reserved.</p>
+  </div>
+</section>
+<div class="menuToggle" onclick="toggleMenu()"></div>
+<div class="navigation">
+  <ul>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Team</a></li>
+    <li><a href="#">Profile</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <div class="socialBar">
+    <ul>
+      <li><a href="#"><img src="/responsive-webpage/facebook.png" alt="fb"></a><li>
+      <li><a href="#"><img src="/responsive-webpage/twitter.png" alt="fb"></a><li>
+      <li><a href="#"><img src="/responsive-webpage/instagram.png" alt="fb"></a><li>
+    </ul>
+    <a href="mailto:tosrisri@gmail.com" class="emailBx"><img src="/responsive-webpage/email.png" alt="email"></a>
+  </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script type="text/javascript">
+// $(document).ready(function () {});
+function toggleMenu() {
+  var menuToggle = document.querySelector('.menuToggle');
+  var navigation = document.querySelector('.navigation');
+  menuToggle.classList.toggle('active');
+  navigation.classList.toggle('active');
+}
+  </script>
+</body>
+
+</html>
