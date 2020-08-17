@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar with Javascript</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+   *, *::after, *::before {
+       box-sizing: border-box;
+   }
+    body {
+        background: #fff;
+        font-family: 'Nunito', sans-serif;
+        font-size: 18px;
+        position: relative;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Serif', serif;
+    }
+    
+    /* About Us Image Gallery Styles */
+.gallery-wrap {
+  width: 100%;
+  padding: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gallery-box {
+  margin: 15px;
+  flex: 0 0 calc(20% - 30px);
+}
+
+.gallery-box img {
+  max-width: 100%;
+  min-width: 100%;
+}
+.pop_image_wrap {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vh;
+  height: 100vh;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content:  space-around;
+  align-items: center;
+  opacity: 0;
+}
+.pop_img {
+  width: 70vw;
+  max-height: 80vh;
+  overflow: hidden;
+  border: 2px solid black;
+}
+
+.pop_img img {
+  max-width: 100%;
+  min-width: 100%;
+}
+
+.active {
+  animation: fadeIn 0.3s;
+  animation-fill-mode: forwards;
+}
+
+.deactive {
+  animation: fadeOut 0.3s;
+  animation-fill-mode: forwards;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+ 
+</style>
+</head>
+<body>
+    <div class="row">
+        <div class="gallery-wrap">
+            <div class="gallery-box">
+                <a href="photos/01.jpg" title="Photo"><img src="photos/01.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/02.jpg" title="Photo"><img src="photos/02.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/07.jpg" title="Photo"><img src="photos/07.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/04.jpg" title="Photo"><img src="photos/04.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/11.jpg" title="Photo"><img src="photos/11.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/01.jpg" title="Photo"><img src="photos/01.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/02.jpg" title="Photo"><img src="photos/02.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/07.jpg" title="Photo"><img src="photos/07.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/04.jpg" title="Photo"><img src="photos/04.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/11.jpg" title="Photo"><img src="photos/11.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/01.jpg" title="Photo"><img src="photos/01.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/02.jpg" title="Photo"><img src="photos/02.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/07.jpg" title="Photo"><img src="photos/07.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/04.jpg" title="Photo"><img src="photos/04.jpg" alt="Photo"></a>
+            </div>
+            <div class="gallery-box">
+                <a href="photos/11.jpg" title="Photo"><img src="photos/11.jpg" alt="Photo"></a>
+            </div>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script>
+        $(document).ready(function(){
+          
+        // About Page Photo Gallery
+        $(".gallery-wrap a").click(function(event){ 
+          var pop_img = $(this).attr('href');
+          $("body").append('<div class="pop_img_wrap"><div class="pop_img"><img src="'+pop_img+'"></div></div>"');
+          $('.pop_img_wrap').addClass('active');
+    
+          $('.pop_img_wrap').click(function(event){
+            $('.pop_img_wrap').addClass('deactive');
+            setTimeout(function(){
+              $('.pop_img_wrap').remove();
+            },300)
+          });
+          $('.pop_img').click(function(event){
+            return false;
+          });
+    
+          return false;
+        });
+    
+        })
+
+      </script>
+</body>
+</html>
