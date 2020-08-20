@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar with Pure CSS</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"  />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        color: bisque;
+        font-weight: 200;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        background: rgb(106, 83, 150);
+        font-size: 18px;
+    }
+    a {
+        text-decoration: none;
+    }
+    .navigation {
+        position: fixed;
+        width: 60px;
+        height: 100%;
+        background: #3e0748;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+    .navigation:hover, .navigation.active {
+        width: 220px;
+    }
+    .navigation ul {
+        position: absolute;
+        list-style: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .navigation ul li {
+        position: relative;
+        width: 100%;
+    }
+    .navigation ul li:hover {
+        background-color: #ea1d63;
+    }
+    .navigation ul li a {
+        position: relative;
+        display: block;
+        display: flex;
+        width: 100%;
+    } 
+    .navigation ul li a .icon {
+        display: block;
+        min-width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+    }
+    .navigation ul li a .icon .fa {
+        font-size: 20px;
+    }
+    .navigation ul li a .title {
+        display: block;
+        height: 60px;
+        line-height: 60px;
+        padding: 0 10px;
+        white-space: nowrap;
+    }
+    .toggle {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        right: 0;
+        top: 0;
+        background: #330748;
+    }
+    .toggle.active {
+        background: brown;
+    }
+    .toggle:before {
+        content: '\f0c9';
+        font-family: fontAwesome;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 60px;
+        font-size: 24px;
+    }
+    .toggle.active:before {
+        content: '\f00d';
+    }
+    @media (max-width: 767px) {
+        .navigation {
+            left: -60px;
+        }
+        .navigation.active {
+            left: 0;
+            width: 100%;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fa fa-home"></i></span>
+                    <span class="title">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fa fa-area-chart"></i></span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fa fa-info-circle"></i></span>
+                    <span class="title">Services</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fa fa-archive"></i></span>
+                    <span class="title">Products</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fa fa-cog"></i></span>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fa fa-phone"></i></span>
+                    <span class="title">Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <span class="icon"><i class="fa fa-sign-out"></i></span>
+                    <span class="title">Exit</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="toggle" onclick="toggleMenu()"></div>
+    <script>
+        function toggleMenu(){
+            let navigation = document.querySelector('.navigation');
+            let toggle = document.querySelector('.toggle');
+            navigation.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
