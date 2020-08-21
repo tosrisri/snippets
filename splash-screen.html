@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splash Screen</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"  />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Nunito', sans-serif;
+        color:navy;
+    }
+    body {
+        
+    }
+    section {
+        position: relative;
+        background: url('/img/bg.jpg') center center no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+    }
+    section::before {
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background: url('/img/splash.jpg');
+        background-size: 100%;
+        background-position: center;
+        mix-blend-mode: screen;
+    }
+
+</style>
+</head>
+
+<body>
+    <section>
+
+    </section>    
+</body>
+
+</html>
